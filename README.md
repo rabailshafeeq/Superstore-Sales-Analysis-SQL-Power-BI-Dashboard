@@ -72,7 +72,7 @@ The dataset contains transactional retail data including:
 ---
 ## SQL Techniques Used
 
-This project uses SQL for data cleaning, aggregation, and analysis, including grouping, ranking, and window functions.
+This project uses SQL for data cleaning, aggregation, and analysis, including grouping and trend analysis.
 
 ### Sales Summary
 
@@ -82,22 +82,26 @@ SELECT
     SUM(Quantity) AS Total_Quantity,
     ROUND(SUM(Profit),2) AS Total_Profit
 FROM sample_superstore;
+```
 Category-wise Performance
+
+```sql
 SELECT Category,
        ROUND(SUM(Sales),2) AS Total_Sales,
        ROUND(SUM(Profit),2) AS Total_Profit
 FROM sample_superstore
 GROUP BY Category
 ORDER BY Total_Sales DESC;
+```
 Monthly Sales Trend
+
+```sql
 SELECT DATENAME(Month, Order_Date) AS Month,
        ROUND(SUM(Sales),2) AS Total_Sales
 FROM sample_superstore
 GROUP BY MONTH(Order_Date), DATENAME(Month, Order_Date)
 ORDER BY MONTH(Order_Date);
-
-For complete SQL scripts, refer to:
-Full SQL Code
+```
 
 Dashboard Features
 KPI cards for Sales, Profit, Quantity, and Discount
@@ -114,3 +118,5 @@ Author
 
 Rabail Shafeeq
 Data Analyst | SQL | Power BI
+
+
