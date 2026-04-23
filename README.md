@@ -8,7 +8,7 @@ This project demonstrates how raw transactional data can be transformed into mea
 
 ## Dashboard Preview
 
-![Dashboard](./Superstore_Sales_Data_Analysis.png)
+![Dashboard](./images/dashboard.png)
 
 ---
 
