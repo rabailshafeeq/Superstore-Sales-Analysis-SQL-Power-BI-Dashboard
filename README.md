@@ -83,7 +83,7 @@ SELECT
     ROUND(SUM(Profit),2) AS Total_Profit
 FROM sample_superstore;
 ```
-Category-wise Performance
+### Category-wise Performance
 
 ```sql
 SELECT Category,
@@ -93,7 +93,7 @@ FROM sample_superstore
 GROUP BY Category
 ORDER BY Total_Sales DESC;
 ```
-Monthly Sales Trend
+### Monthly Sales Trend
 
 ```sql
 SELECT DATENAME(Month, Order_Date) AS Month,
@@ -117,6 +117,7 @@ This project demonstrates how SQL and Power BI can be combined to transform raw 
 Author
 
 Rabail Shafeeq
+
 Data Analyst | SQL | Power BI
 
 
