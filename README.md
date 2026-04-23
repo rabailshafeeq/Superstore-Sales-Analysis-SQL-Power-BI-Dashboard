@@ -8,7 +8,7 @@ This project demonstrates how raw transactional data can be transformed into mea
 
 ## Dashboard Preview
 
-![Dashboard](./images/dashboard.png)
+![Dashboard](./images/Superstore_Sales_Data_Analysis.png)
 
 ---
 
@@ -62,7 +62,7 @@ The dataset contains transactional retail data including:
 ## Key Insights
 
 - Q4 generates the highest sales, indicating strong seasonal demand  
-- Technology leads in total sales, while Office Supplies delivers higher profit margins  
+- Technology leads in total sales, while Office Supplies delivers higher profit margins 
 - Consumer segment contributes over 50% of total sales  
 - Standard Class is the most used shipping mode (approximately 59%)  
 - Higher discounts are associated with reduced profitability  
@@ -70,25 +70,47 @@ The dataset contains transactional retail data including:
 - Sales peaked in 2023, showing strong business performance  
 
 ---
+## SQL Techniques Used
 
-## Dashboard Features
+This project uses SQL for data cleaning, aggregation, and analysis, including grouping, ranking, and window functions.
 
-- KPI cards for Sales, Profit, Quantity, and Discount  
-- Monthly trend analysis for sales and quantity  
-- Category-wise and segment-wise performance breakdown  
-- Shipping mode and quarterly distribution analysis  
-- Sales vs Profit relationship (scatter analysis)  
-- Interactive filters for Region and Year  
+### Sales Summary
 
----
+```sql
+SELECT 
+    ROUND(SUM(sales),2) AS Total_Sales,
+    SUM(Quantity) AS Total_Quantity,
+    ROUND(SUM(Profit),2) AS Total_Profit
+FROM sample_superstore;
+Category-wise Performance
+SELECT Category,
+       ROUND(SUM(Sales),2) AS Total_Sales,
+       ROUND(SUM(Profit),2) AS Total_Profit
+FROM sample_superstore
+GROUP BY Category
+ORDER BY Total_Sales DESC;
+Monthly Sales Trend
+SELECT DATENAME(Month, Order_Date) AS Month,
+       ROUND(SUM(Sales),2) AS Total_Sales
+FROM sample_superstore
+GROUP BY MONTH(Order_Date), DATENAME(Month, Order_Date)
+ORDER BY MONTH(Order_Date);
 
-## Conclusion
+For complete SQL scripts, refer to:
+Full SQL Code
 
-This project demonstrates how combining SQL and Power BI can transform raw data into actionable insights, helping businesses improve decision-making, optimize performance, and identify growth opportunities.
+Dashboard Features
+KPI cards for Sales, Profit, Quantity, and Discount
+Monthly sales trend analysis
+Category and segment performance breakdown
+Shipping mode and quarterly distribution
+Sales vs Profit relationship (scatter analysis)
+Interactive filters for Region and Year
+Conclusion
 
----
+This project demonstrates how SQL and Power BI can be combined to transform raw data into actionable insights. It highlights key business trends and supports data-driven decision-making.
 
-## Author
+Author
 
-Rabail Shafeeq  
+Rabail Shafeeq
 Data Analyst | SQL | Power BI
